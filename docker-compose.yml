@@ -3,10 +3,25 @@ version: '3'
 services:
 
   apache:
-    image: eeacms/apache:2.4-2.0
+    image: eeacms/apache:2.4-2.1
     ports:
-       - 80:80
-       - 443:443
+    - "80:80"
+    - "443:443"
+    depends_on:
+      - plone
+    environment:
+      APACHE_CONFIG: |-
+        <VirtualHost *:80>
+            ServerAdmin contact@localhost
+            ServerName localhost
+            ErrorLog /var/log/apache.log
+
+            RewriteEngine On
+            RewriteRule ^/(.*) http://plone:8080/VirtualHostBase/http/localhost:80/VirtualHostRoot/$$1 [P,L]
+        </VirtualHost>
+
+  plone:
+    image: plone
 
   geoserver:
     image: eeacms/geoserver:v2.12.1
