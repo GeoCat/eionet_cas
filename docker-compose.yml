@@ -22,8 +22,20 @@ services:
   #  container_name: "helper"
   #  image: "cas_helper"
 
+  cas:
+    build: ./cas
+  #  environment:
+  #    - SERVERNAME=cas.eea.org
+    ports:
+      - "0.0.0.0:8080:8080"
+      - "0.0.0.0:8443:8443"
+  #  volumes:
+  #      - casconfig:/etc/cas/config/
+    container_name: "cas"
+    image: "cas_cas"
+
   #cas:
-  #  build: ./cas
+    #build: ./cas-webapp-docker
   #  environment:
   #    - SERVERNAME=cas.eea.org
   #  ports:
@@ -32,19 +44,7 @@ services:
   #  volumes:
   #      - casconfig:/etc/cas/config/
   #  container_name: "cas"
-  #  image: "cas_cas"
-
-  cas:
-    #build: ./cas-webapp-docker
-    environment:
-      - SERVERNAME=cas.eea.org
-    ports:
-      - "0.0.0.0:8080:8080"
-      - "0.0.0.0:8443:8443"
-  #  volumes:
-  #      - casconfig:/etc/cas/config/
-    container_name: "cas"
-    image: "apereo/cas:v5.2.3"
+  #  image: "apereo/cas:v5.1.3"
 
   geoserver:
     build: ./geoserver
