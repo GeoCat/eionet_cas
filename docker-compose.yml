@@ -7,13 +7,18 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    container_name: "apache"
+    image: "cas_apache"
 
   cas:
     image: apereo/cas:v5.2.2
     ports:
       - "8443:443"
+    container_name: "cas"
 
   geoserver:
     build: ./geoserver
     ports:
       - 8080:8080
+    container_name: "geoserver"
+    image: "cas_geoserver"
