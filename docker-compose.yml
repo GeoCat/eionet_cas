@@ -53,6 +53,6 @@ services:
     container_name: "geoserver"
     #image: "cas_geoserver"
 
-#volumes:
-#    casconfig:
-#       driver: local
+volumes:
+    casconfig:
+       driver: local
