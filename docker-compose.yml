@@ -16,8 +16,8 @@ services:
         - "cas"
     environment:
       - SERVERNAME=cas.eea.org
-    volumes:
-    - casconfig:/etc/cas/config/
+    #volumes:
+    #- casconfig:/etc/cas/config/
     #command: ["/bin/bash", "./wait-for-it.sh", "cas:8443", "-t", "0", "--", "./entrypoint.sh"]
     container_name: "helper"
     image: "cas_helper"
@@ -53,6 +53,6 @@ services:
     container_name: "geoserver"
     image: "cas_geoserver"
 
-volumes:
-    casconfig:
-       driver: local
+#volumes:
+#    casconfig:
+#       driver: local
