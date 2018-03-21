@@ -10,11 +10,27 @@ services:
     container_name: "apache"
     image: "cas_apache"
 
+  helper:
+    build: ./helper
+    depends_on:
+        - "cas"
+    environment:
+      - SERVERNAME=cas.eea.org
+    volumes:
+    - casconfig:/etc/cas/config/
+    command: ["/bin/bash", "./wait-for-it.sh", "cas:8443", "-t", "0", "--", "./entrypoint.sh"]
+    container_name: "helper"
+    image: "cas_helper"
+
   cas:
     build: ./cas
+    environment:
+      - SERVERNAME=cas.eea.org
     ports:
       - "8443:8443"
       - "8081:8080"
+    volumes:
+        - casconfig:/etc/cas/config/
     container_name: "cas"
     image: "cas_cas"
 
@@ -24,3 +40,7 @@ services:
       - 8080:8080
     container_name: "geoserver"
     image: "cas_geoserver"
+
+volumes:
+    casconfig:
+       driver: local
