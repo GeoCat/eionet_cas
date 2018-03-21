@@ -3,31 +3,17 @@ version: '3'
 services:
 
   apache:
-    #image: eeacms/apache:2.4-2.1
     build: ./apache
     ports:
-    - "80:80"
-    - "443:443"
+      - "80:80"
+      - "443:443"
 
   cas:
-    image: apereo/cas
-
+    image: apereo/cas:v5.2.2
+    ports:
+      - "8443:443"
 
   geoserver:
-    #image: eeacms/geoserver:v2.12.1
     build: ./geoserver
     ports:
       - 8080:8080
-    #volumes:
-    #- /backups:/backups
-
-
-  #volumes:
-  #- /backups:/backups
-  #- /etc/httpd/conf.d:/etc/httpd/conf.d
-  #- /var/www:/var/www
-  #- /var/local/gis_sdi:/var/local/gis_sdi
-  #- /etc/pki/tls/certs/server-eea.crt:/ssl/server.crt:ro
-  #- /etc/pki/tls/private/server-eea.key:/ssl/server.key:ro
-  #- /etc/pki/tls/certs/ca-bundle.crt:/ssl/ca-bundle.crt:ro
-  #- /etc/pki/tls/certs/server-chain-eea.crt:/ssl/chain.crt:ro
