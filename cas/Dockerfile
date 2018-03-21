@@ -1,4 +1,3 @@
-FROM httpd:2.4
+FROM apereo/cas:v5.2.2
 
 MAINTAINER doublebyte <joana.simoes@geocat.net>
-
