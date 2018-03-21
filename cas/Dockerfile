@@ -9,3 +9,8 @@ COPY cas.properties /cas-overlay/etc/cas/config/
 
 #RUN keytool -import -noprompt -trustcacerts -alias cas -file /etc/cas/server.crt \
 #  -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -keypass changeit
+WORKDIR /cas-overlay
+
+ENV JAVA_HOME /opt/jre-home
+ENV PATH $PATH:$JAVA_HOME/bin:.
+RUN ./mvnw clean package -T 10 -Dcas.version=5.1.3
