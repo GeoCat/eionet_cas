@@ -11,7 +11,7 @@ services:
     image: "cas_apache"
 
   cas:
-    build: ./apache
+    build: ./cas
     ports:
       - "8443:8443"
       - "8081:8080"
