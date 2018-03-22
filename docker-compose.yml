@@ -50,7 +50,7 @@ services:
       LDAP_READONLY_USER: "false"
       LDAP_RFC2307BIS_SCHEMA: "false"
       LDAP_BACKEND: "mdb"
-      LDAP_TLS: "true"
+      LDAP_TLS: "false"
       LDAP_TLS_CRT_FILENAME: "ldap.crt"
       LDAP_TLS_KEY_FILENAME: "ldap.key"
       LDAP_TLS_CA_CRT_FILENAME: "ca.crt"

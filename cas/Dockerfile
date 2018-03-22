@@ -5,7 +5,7 @@ MAINTAINER doublebyte <joana.simoes@geocat.net>
 # Add SSL certificates
 #COPY thekeystore /etc/cas/
 #COPY server.crt /etc/cas/
-COPY cas.properties /cas-overlay/etc/cas/config/
+COPY ./cas-overlay /cas-overlay
 
 #RUN keytool -import -noprompt -trustcacerts -alias cas -file /etc/cas/server.crt \
 #  -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -keypass changeit
