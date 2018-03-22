@@ -14,3 +14,5 @@ WORKDIR /cas-overlay
 ENV JAVA_HOME /opt/jre-home
 ENV PATH $PATH:$JAVA_HOME/bin:.
 RUN ./mvnw clean package -T 10 -Dcas.version=5.1.3
+
+COPY ./cas-overlay/etc/cas/services /tmp/cas/services
