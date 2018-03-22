@@ -1,0 +1,106 @@
+# Check https://apereo.github.io/cas/5.1.x/installation/Configuration-Properties.html#ldap-authentication-1
+# cas.authn.ldap[0].type=AD|AUTHENTICATED|DIRECT|ANONYMOUS
+
+# cas.authn.ldap[0].ldapUrl=ldaps://ldap1.example.edu ldaps://ldap2.example.edu
+# cas.authn.ldap[0].connectionStrategy=
+# cas.authn.ldap[0].useSsl=true
+# cas.authn.ldap[0].useStartTls=false
+# cas.authn.ldap[0].connectTimeout=5000
+# cas.authn.ldap[0].baseDn=dc=example,dc=org
+# cas.authn.ldap[0].userFilter=cn={user}
+# cas.authn.ldap[0].subtreeSearch=true
+# cas.authn.ldap[0].usePasswordPolicy=true
+# cas.authn.ldap[0].bindDn=cn=Directory Manager,dc=example,dc=org
+# cas.authn.ldap[0].bindCredential=Password
+
+# cas.authn.ldap[0].enhanceWithEntryResolver=true
+# cas.authn.ldap[0].dnFormat=uid=%s,ou=people,dc=example,dc=org
+# cas.authn.ldap[0].principalAttributeId=uid
+# cas.authn.ldap[0].principalAttributePassword=password
+# cas.authn.ldap[0].principalAttributeList=sn,cn:commonName,givenName,eduPersonTargettedId:SOME_IDENTIFIER
+
+# cas.authn.ldap[0].collectDnAttribute=false
+# cas.authn.ldap[0].principalDnAttributeName=principalLdapDn
+# cas.authn.ldap[0].allowMultiplePrincipalAttributeValues=true
+# cas.authn.ldap[0].allowMissingPrincipalAttributeValue=true
+# cas.authn.ldap[0].credentialCriteria=
+
+# cas.authn.ldap[0].saslMechanism=GSSAPI|DIGEST_MD5|CRAM_MD5|EXTERNAL
+# cas.authn.ldap[0].saslRealm=EXAMPLE.COM
+# cas.authn.ldap[0].saslAuthorizationId=
+# cas.authn.ldap[0].saslMutualAuth=
+# cas.authn.ldap[0].saslQualityOfProtection=
+# cas.authn.ldap[0].saslSecurityStrength=
+
+# cas.authn.ldap[0].trustCertificates=
+# cas.authn.ldap[0].keystore=
+# cas.authn.ldap[0].keystorePassword=
+# cas.authn.ldap[0].keystoreType=JKS|JCEKS|PKCS12
+
+# cas.authn.ldap[0].poolPassivator=NONE|CLOSE|BIND
+# cas.authn.ldap[0].minPoolSize=3
+# cas.authn.ldap[0].maxPoolSize=10
+# cas.authn.ldap[0].validateOnCheckout=true
+# cas.authn.ldap[0].validatePeriodically=true
+# cas.authn.ldap[0].validatePeriod=600
+# cas.authn.ldap[0].validateTimeout=5000
+
+# cas.authn.ldap[0].failFast=true
+# cas.authn.ldap[0].idleTime=5000
+# cas.authn.ldap[0].prunePeriod=5000
+# cas.authn.ldap[0].blockWaitTime=5000
+
+# cas.authn.ldap[0].providerClass=org.ldaptive.provider.unboundid.UnboundIDProvider
+# cas.authn.ldap[0].allowMultipleDns=false
+
+# cas.authn.ldap[0].searchEntryHandlers[0].type=CASE_CHANGE|DN_ATTRIBUTE_ENTRY|MERGE| \
+#                                               OBJECT_GUID|OBJECT_SID|PRIMARY_GROUP| \
+#                                               RANGE_ENTRY|RECURSIVE_ENTRY
+
+# cas.authn.ldap[0].searchEntryHandlers[0].caseChange.dnCaseChange=NONE|LOWER|UPPER
+# cas.authn.ldap[0].searchEntryHandlers[0].caseChange.attributeNameCaseChange=NONE|LOWER|UPPER
+# cas.authn.ldap[0].searchEntryHandlers[0].caseChange.attributeValueCaseChange=NONE|LOWER|UPPER
+# cas.authn.ldap[0].searchEntryHandlers[0].caseChange.attributeNames=
+
+# cas.authn.ldap[0].searchEntryHandlers[0].dnAttribute.dnAttributeName=entryDN
+# cas.authn.ldap[0].searchEntryHandlers[0].dnAttribute.addIfExists=false
+
+# cas.authn.ldap[0].searchEntryHandlers[0].primaryGroupId.groupFilter=(&(objectClass=group)(objectSid={0}))
+# cas.authn.ldap[0].searchEntryHandlers[0].primaryGroupId.baseDn=
+
+# cas.authn.ldap[0].searchEntryHandlers[0].mergeAttribute.mergeAttributeName=
+# cas.authn.ldap[0].searchEntryHandlers[0].mergeAttribute.attribueNames=
+
+# cas.authn.ldap[0].searchEntryHandlers[0].recursive.searchAttribute=
+# cas.authn.ldap[0].searchEntryHandlers[0].recursive.mergeAttributes=
+
+# cas.authn.ldap[0].name=
+# cas.authn.ldap[0].order=0
+
+# cas.authn.ldap[0].passwordEncoder.type=NONE|DEFAULT|STANDARD|BCRYPT|SCRYPT|PBKDF2|com.example.CustomPasswordEncoder
+# cas.authn.ldap[0].passwordEncoder.characterEncoding=
+# cas.authn.ldap[0].passwordEncoder.encodingAlgorithm=
+# cas.authn.ldap[0].passwordEncoder.secret=
+# cas.authn.ldap[0].passwordEncoder.strength=16
+
+# cas.authn.ldap[0].principalTransformation.suffix=
+# cas.authn.ldap[0].principalTransformation.caseConversion=NONE|UPPERCASE|LOWERCASE
+# cas.authn.ldap[0].principalTransformation.prefix=
+
+# cas.authn.ldap[0].validator.type=NONE|SEARCH|COMPARE
+# cas.authn.ldap[0].validator.baseDn=
+# cas.authn.ldap[0].validator.searchFilter=(objectClass=*)
+# cas.authn.ldap[0].validator.scope=OBJECT|ONELEVEL|SUBTREE
+# cas.authn.ldap[0].validator.attributeName=objectClass
+# cas.authn.ldap[0].validator.attributeValues=top
+# cas.authn.ldap[0].validator.dn=
+
+# cas.authn.ldap[0].passwordPolicy.type=GENERIC|AD|FreeIPA|EDirectory
+# cas.authn.ldap[0].passwordPolicy.enabled=true
+# cas.authn.ldap[0].passwordPolicy.policyAttributes.accountLocked=javax.security.auth.login.AccountLockedException
+# cas.authn.ldap[0].passwordPolicy.loginFailures=5
+# cas.authn.ldap[0].passwordPolicy.warningAttributeValue=
+# cas.authn.ldap[0].passwordPolicy.warningAttributeName=
+# cas.authn.ldap[0].passwordPolicy.displayWarningOnMatch=true
+# cas.authn.ldap[0].passwordPolicy.warnAll=true
+# cas.authn.ldap[0].passwordPolicy.warningDays=30

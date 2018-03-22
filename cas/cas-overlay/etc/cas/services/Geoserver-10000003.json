@@ -1,0 +1,8 @@
+{
+  "@class" : "org.apereo.cas.services.RegexRegisteredService",
+  "serviceId" : "^http://cas.eea.org:8081/geoserver/web",
+  "name" : "Geoserver",
+  "id" : 10000003,
+  "description" : "Geoserver service",
+  "evaluationOrder" : 2
+}

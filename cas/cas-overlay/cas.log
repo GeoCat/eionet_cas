@@ -1,0 +1,22 @@
+2018-03-22 10:07:12,698 WARN [org.apereo.cas.config.CasCoreTicketsConfiguration] - <Runtime memory is used as the persistence storage for retrieving and managing tickets. Tickets that are issued during runtime will be LOST upon container restarts. This MAY impact SSO functionality.>
+2018-03-22 10:07:24,462 WARN [org.apereo.cas.config.support.authentication.AcceptUsersAuthenticationEventExecutionPlanConfiguration] - <[36m>
+2018-03-22 10:07:24,465 WARN [org.apereo.cas.config.support.authentication.AcceptUsersAuthenticationEventExecutionPlanConfiguration] - <
+
+  ____    _____    ___    ____    _ 
+ / ___|  |_   _|  / _ \  |  _ \  | |
+ \___ \    | |   | | | | | |_) | | |
+  ___) |   | |   | |_| | |  __/  |_|
+ |____/    |_|    \___/  |_|     (_)
+                                    
+
+CAS is configured to accept a static list of credentials for authentication. While this is generally useful for demo purposes, it is STRONGLY recommended that you DISABLE this authentication method (by SETTING 'cas.authn.accept.users' to a blank value) and switch to a mode that is more suitable for production.>
+2018-03-22 10:07:24,465 WARN [org.apereo.cas.config.support.authentication.AcceptUsersAuthenticationEventExecutionPlanConfiguration] - <[0m>
+2018-03-22 10:07:25,087 WARN [org.apereo.cas.config.CasCoreServicesConfiguration] - <Runtime memory is used as the persistence storage for retrieving and persisting service definitions. Changes that are made to service definitions during runtime WILL be LOST upon container restarts.>
+2018-03-22 10:07:28,770 WARN [org.apereo.cas.util.cipher.BaseStringCipherExecutor] - <Secret key for encryption is not defined for [Ticket-granting Cookie]; CAS will attempt to auto-generate the encryption key>
+2018-03-22 10:07:28,777 WARN [org.apereo.cas.util.cipher.BaseStringCipherExecutor] - <Generated encryption key [bv47Zp3zUFiywn2nbfzNE50IxaI6LQUrjXObdp3ekTQ] of size [256] for [Ticket-granting Cookie]. The generated key MUST be added to CAS settings.>
+2018-03-22 10:07:28,777 WARN [org.apereo.cas.util.cipher.BaseStringCipherExecutor] - <Secret key for signing is not defined for [Ticket-granting Cookie]. CAS will attempt to auto-generate the signing key>
+2018-03-22 10:07:28,777 WARN [org.apereo.cas.util.cipher.BaseStringCipherExecutor] - <Generated signing key [Yft3x535ka3qIq4_1MeSNzHq_LhlfcviX11iEPjExy7GSWcjxLfhByQA4Cyu-pW0TdmNnVB3Xt2386yao-15rQ] of size [512] for [Ticket-granting Cookie]. The generated key MUST be added to CAS settings.>
+2018-03-22 10:07:29,053 WARN [org.apereo.cas.util.cipher.BaseBinaryCipherExecutor] - <Secret key for signing is not defined. CAS will attempt to auto-generate the signing key>
+2018-03-22 10:07:29,053 WARN [org.apereo.cas.util.cipher.BaseBinaryCipherExecutor] - <Generated signing key [IpJLlhB0P_87lyqX9ee3_raDgrms1AVthkzWss2HWiGpw99OBKkm7-6cqvPgxlbi-O4EWKo1WI0cExsBYTQoUw] of size [512]. The generated key MUST be added to CAS settings.>
+2018-03-22 10:07:29,053 WARN [org.apereo.cas.util.cipher.BaseBinaryCipherExecutor] - <No encryption key is defined. CAS will attempt to auto-generate keys>
+2018-03-22 10:07:29,054 WARN [org.apereo.cas.util.cipher.BaseBinaryCipherExecutor] - <Generated encryption key [hpDupNHBtvACMuxU] of size [16]. The generated key MUST be added to CAS settings.>
