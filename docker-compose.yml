@@ -84,7 +84,7 @@ services:
       - "8082:80"
     depends_on:
       - openldap
-  
+
   #cas:
     #build: ./cas-webapp-docker
   #  environment:
@@ -101,6 +101,7 @@ services:
     build: ./geoserver
     ports:
       - 8081:8080
+      - 8444:8443
     container_name: "geoserver"
     depends_on:
       - cas

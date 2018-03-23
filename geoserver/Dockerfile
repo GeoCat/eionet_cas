@@ -7,5 +7,11 @@ RUN unzip -o cas-plugin -d /usr/local/geoserver/WEB-INF/lib/
 
 RUN echo '127.0.0.1  cas.eea.org' >> /etc/hosts
 
-COPY ./server.crt /home
-RUN keytool -import -noprompt -trustcacerts -alias cas -file /home/server.crt -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -keypass changeit
+COPY ./ssl.crt /home
+COPY ./ssl.key /home
+COPY ./server.xml $CATALINA_HOME/conf/
+
+RUN keytool -import -noprompt -trustcacerts -alias cas -file /home/ssl.crt \
+ -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -keypass changeit
+
+EXPOSE 8443
