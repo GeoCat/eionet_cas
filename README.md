@@ -1,28 +1,5 @@
 # Configuration
 
-## Notes
-
-The self-certificates were generated in folder "certificates", using this command:
-
-```bash
-
-
-openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj \
-    "/C=DK/ST=Copenhagen/L=Copenhagen/O=EEA/CN=cas.eea.org" -keyout \
-    ./ssl.key -out ./ssl.crt
-```
-
-created keystore (used 'changeit' as password):
-
-```bash
-
-
-openssl x509 -in ssl.crt -inform PEM -out cert.der -outform DER
-keytool -import -trustcacerts -alias cas.eea.org -file cert.der -keystore thekeystore
-```
-
-Please copy them manually, to all **relevant paths** (e.g.: geoserver, cas)
-
 ## How to setup the machine
 
 The certifcates were generated for the domain **cas.eea.org**, so you need to add it in the **/etc/hosts** of your host machine by adding the following line:
@@ -53,16 +30,27 @@ CAS needs few extra steps to be configured in GeoServer after startup:
 7. Select the CAS Filter (CASGS) for each filter chain you want to protect with CAS.
 8. Save.
 
-More details [here](http://docs.geoserver.org/stable/en/user/security/tutorials/cas/index.html) 
+More details [here](http://docs.geoserver.org/stable/en/user/security/tutorials/cas/index.html)
+
+## Notes for Developers
+
+The self-certificates were generated in folder "certificates", using this command:
+
+```bash
 
 
+openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj \
+    "/C=DK/ST=Copenhagen/L=Copenhagen/O=EEA/CN=cas.eea.org" -keyout \
+    ./ssl.key -out ./ssl.crt
+```
+
+created keystore (used 'changeit' as password):
+
+```bash
 
 
+openssl x509 -in ssl.crt -inform PEM -out cert.der -outform DER
+keytool -import -trustcacerts -alias cas.eea.org -file cert.der -keystore thekeystore
+```
 
-
-
-
-
-
-
-
+Please copy them manually, to all **relevant paths** (e.g.: geoserver, cas)
