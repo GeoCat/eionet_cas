@@ -1,3 +1,7 @@
+# Configuration
+
+## Notes
+
 The self-certificates were generated in folder "certificates", using this command:
 
 ```bash
@@ -19,9 +23,46 @@ keytool -import -trustcacerts -alias cas.eea.org -file cert.der -keystore thekey
 
 Please copy them manually, to all **relevant paths** (e.g.: geoserver, cas)
 
+## How to setup the machine
 
-Geoserver is available on:
+The certifcates were generated for the domain **cas.eea.org**, so you need to add it in the **/etc/hosts** of your host machine by adding the following line:
+```
+127.0.0.1    cas.eea.org
+```
+
+Geoserver is now available on:
 
 ```
-https://localhost:8444/geoserver
+https://cas.eea.org:8444/geoserver
 ```
+
+## GeoServer configuration
+
+CAS needs few extra steps to be configured in GeoServer after startup:
+
+1. Start GeoServer and login to the web admin interface as the admin user.
+2. Click the Authentication link located under the Security section of the navigation sidebar.
+3. Scroll down to the Authentication Filters panel and click the Add new link.
+4. Click the CAS link.
+5. Fill in the fields of the settings form as follows:
+    * Name: CASGS
+    * CAS server URL including context root: https://cas.eea.org:8443/cas
+    * Check the Participate in single sign out (recomended)
+    * Choose a Role source
+6. Update the filter chains by adding the new CAS filter.
+7. Select the CAS Filter (CASGS) for each filter chain you want to protect with CAS.
+8. Save.
+
+More details [here](http://docs.geoserver.org/stable/en/user/security/tutorials/cas/index.html) 
+
+
+
+
+
+
+
+
+
+
+
+
