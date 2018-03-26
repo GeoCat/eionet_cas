@@ -6,6 +6,8 @@ MAINTAINER doublebyte <joana.simoes@geocat.net>
 COPY ./thekeystore /etc/cas/
 COPY ./cas-overlay /cas-overlay
 
+RUN echo geoserver cas.eea.org > /etc/hosts
+
 #RUN keytool -import -noprompt -trustcacerts -alias cas -file /etc/cas/server.crt \
 #  -keystore $JAVA_HOME/lib/security/cacerts -storepass changeit -keypass changeit
 WORKDIR /cas-overlay
