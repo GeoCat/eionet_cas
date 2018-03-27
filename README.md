@@ -17,9 +17,9 @@ https://cas.eea.org:8444/geoserver
 
 CAS needs few extra steps to be configured in GeoServer after startup:
 
-1. Start GeoServer and login to the web admin interface as the admin user.
+1. Start GeoServer and login to the web admin interface as the admin user (default password: 'geoserver').
 2. Click the Authentication link located under the Security section of the navigation sidebar.
-3. Scroll down to the Authentication Filters panel and click the Add new link.
+3. Scroll down to the Authentication Filters panel and click the "Add new" link.
 4. Click the CAS link.
 5. Fill in the fields of the settings form as follows:
     * Name: CASGS
@@ -31,6 +31,12 @@ CAS needs few extra steps to be configured in GeoServer after startup:
 8. Save.
 
 More details [here](http://docs.geoserver.org/stable/en/user/security/tutorials/cas/index.html)
+
+## Trying Geoserver-enabled CAS
+
+1. Login into GeoServer - you will be redirected to the cas login page.
+2. Login in cas, using the default credentials ("admin", "admin").
+3. You will be redirected to the GeoServer page, logged in as "admin".
 
 ## Notes for Developers
 
