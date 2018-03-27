@@ -32,7 +32,7 @@ CAS needs few extra steps to be configured in GeoServer after startup:
 
 More details [here](http://docs.geoserver.org/stable/en/user/security/tutorials/cas/index.html)
 
-## Trying Geoserver-enabled CAS
+## Trying the SSO on Geoserver
 
 1. Login into GeoServer - you will be redirected to the cas login page.
 2. Login in cas, using the default credentials ("admin", "admin").
