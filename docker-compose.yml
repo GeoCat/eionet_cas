@@ -10,7 +10,7 @@ services:
     ports:
       - "0.0.0.0:8080:8080"
       - "0.0.0.0:8443:8443"
-    command: ["/bin/bash", "/wait-for-it.sh", "openldap:389", "-t", "0", "--", "/cas-overlay/bin/run-cas.sh"]      
+    command: ["/bin/bash", "/wait-for-it.sh", "openldap:389", "-t", "0", "--", "/cas-overlay/bin/run-cas.sh"]
     container_name: "cas"
     image: "cas_cas"
 
@@ -41,6 +41,7 @@ services:
       LDAP_SSL_HELPER_PREFIX: "ldap"
     tty: true
     stdin_open: true
+    command: --copy-service
     volumes:
       - ldap1:/var/lib/ldap
       - ldap2:/etc/ldap/slapd.d
