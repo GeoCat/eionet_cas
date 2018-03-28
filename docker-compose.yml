@@ -13,7 +13,6 @@ services:
   #  volumes:
   #      - casconfig:/etc/cas/config/
     container_name: "cas"
-    image: "cas_cas"
     depends_on:
       - openldap
 
@@ -44,6 +43,7 @@ services:
       LDAP_SSL_HELPER_PREFIX: "ldap"
     tty: true
     stdin_open: true
+    command: --copy-service
     volumes:
       - ldap1:/var/lib/ldap
       - ldap2:/etc/ldap/slapd.d
