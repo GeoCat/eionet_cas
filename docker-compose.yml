@@ -10,12 +10,9 @@ services:
     ports:
       - "0.0.0.0:8080:8080"
       - "0.0.0.0:8443:8443"
-  #  volumes:
-  #      - casconfig:/etc/cas/config/
+    command: ["/bin/bash", "/wait-for-it.sh", "openldap:389", "-t", "0", "--", "/cas-overlay/bin/run-cas.sh"]      
     container_name: "cas"
     image: "cas_cas"
-    depends_on:
-      - openldap
 
   openldap:
     image: osixia/openldap
@@ -70,15 +67,11 @@ services:
     ports:
       - 8081:8080
       - 8444:8443
+    volumes:
+       - geoserver-data-dir:/var/local/geoserver
     container_name: "geoserver"
     depends_on:
       - cas
-
-  #hosts:
-  #  network_mode: none
-  #  image: rawmind/alpine-sysctl:0.1
-  #  privileged: true
-  #  command: echo "127.0.0.1 cas.eea.org" >> /etc/hosts
 
 volumes:
     casconfig:
@@ -88,4 +81,6 @@ volumes:
     ldap2:
        driver: local
     ldap3:
+       driver: local
+    geoserver-data-dir:
        driver: local

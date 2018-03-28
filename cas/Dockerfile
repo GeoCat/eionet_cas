@@ -5,6 +5,7 @@ MAINTAINER doublebyte <joana.simoes@geocat.net>
 # Add SSL certificates
 COPY ./thekeystore /etc/cas/
 COPY ./cas-overlay /cas-overlay
+COPY ./wait-for-it.sh /wait-for-it.sh
 
 RUN echo geoserver cas.eea.org > /etc/hosts
 
